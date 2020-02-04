@@ -1,4 +1,4 @@
-# Tic Tac Toe Game
+# Slot Machine Game
 
 ## Description
 Win by matching 3 symbols in a horizontal line. 
