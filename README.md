@@ -18,6 +18,6 @@ Win by matching 3 symbols in a horizontal line
 - CSS
 
 ## Wireframes & Screenshots
-![](slot-machine-ref.jpg)
+![Slot Machine](images/slot-machine-ref.jpg)
 ## Future Enhancements
 - TBD
