@@ -1,7 +1,7 @@
 # Tic Tac Toe Game
 
 ## Description
-Win by matching 3 symbols in a horizontal line
+Win by matching 3 symbols in a horizontal line. 
 
 ## User Stories
 - As a player, I should be able to land on a page where I see a slot machine with 3 random symbols displayed
@@ -19,5 +19,10 @@ Win by matching 3 symbols in a horizontal line
 
 ## Wireframes & Screenshots
 ![Slot Machine](images/slot-machine-ref.jpg)
+- Slot Machine Reference
+
 ## Future Enhancements
 - TBD
+
+## Author
+- **Fabrizio Lopez**
