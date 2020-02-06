@@ -13,7 +13,7 @@ Win by matching 3 symbols in a horizontal line.
 - AAU I would also want to have a button to start a new game if I run out of tokens
 
 ## Wireframes & Screenshots
-![Wireframe](mywireframe.jpeg)
+![Wireframe](images/mywireframe.jpeg)
 - My Wireframe
 
 ![Slot Machine](images/slot-machine-ref.jpg)
