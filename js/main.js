@@ -8,7 +8,51 @@ IF the user clicks the Play Again button, the program will run again from the be
  */
 
 /*----- constants -----*/
+const imageLookup = {
+    bananaUrl: 'images/banana.png',
+    barUrl: 'images/bar.png',
+    cherriesUrl: 'images/cherries.png',
+    diamondUrl: 'images/diamond.png',
+    dollarSignUrl: 'images/dollar-sign.png',
+    grapeUrl: 'images/grape.png',
+    lemonUrl: 'images/lemon.png',
+    sevenUrl: 'images/seven.png',
+    watermelonUrl: 'images/watermelon.png'
+};
+
 /*----- app's state (variables) -----*/
+let urlArray;
+let randArray;
 /*----- cached element references -----*/
+
+const slotElements = {
+    slotOneImg: document.querySelector('#slot1 img'),
+    slotTwoImg: document.querySelector('#slot2 img'),
+    slotThreeImg: document.querySelector('#slot3 img')
+}
+
 /*----- event listeners -----*/
+
 /*----- functions -----*/
+function init() {
+    urlArray = Object.values(imageLookup); //makes a new array of the values from my image object
+    console.log(urlArray);
+    randArray = urlArray[Math.floor(Math.random() * urlArray.length)];//grabbing a random url based on index
+}
+
+init();
+
+function render() {
+    renderSlotImg();
+}
+
+function renderSlotImg() {
+    for (let imageEle in slotElements) {
+        slotElements[imageEle].src = randArray;
+    };
+}
+
+function randIdx() {
+    
+}
+render();
