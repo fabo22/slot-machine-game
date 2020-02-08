@@ -33,7 +33,6 @@ html, * {
   img {
     width: 15vmin;
     height: 20vmin;
-    font-family: 'VT323', monospace;
     border: 1px solid black;
     padding: 1vmin;
 }
@@ -52,4 +51,10 @@ html, * {
       margin-top: 2vmin;
       font-size: 3vmin;
       border: 1px solid black;
+  }
+
+  p {
+      display: inline;
+      font-family: 'VT323', monospace;
+      font-size: 7vmin;
   }
