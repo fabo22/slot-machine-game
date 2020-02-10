@@ -34,24 +34,38 @@ const slotElements = {
 
 const tokensEle = document.querySelector('#token');
 console.log(tokensEle);
-/*----- event listeners -----*/
+
 const spinButton = document.querySelector('#spin');
-spinButton.addEventListener('click', (e) => {
-    renderSlotImg();
-    if (tokens > 0) tokensEle.textContent = tokens -= 1;
-});
 
-document.querySelector('#play-again').addEventListener('click', init);
-/*----- functions -----*/
-function init() {
-    tokens = 15; //start out with 15 tokens
-    urlArray = Object.values(imageLookup); //makes a new array of the values from my image object
-    //randArray = urlArray[Math.floor(Math.random() * urlArray.length)];//grabbing a random url based on index
-    render();
-}
+const resetButton = document.querySelector('#play-again');
 
-init();
-
+/*----- event listeners -----*/
+function spinner() {
+    spinButton.addEventListener('click', function stopper(e) {
+        renderSlotImg();
+        if (tokens > 1) {
+            tokensEle.textContent = tokens -= 1;
+        } else if (tokens === 1) {
+            tokensEle.textContent = tokens -= 1;
+            spinButton.removeEventListener('click', stopper, false);
+            resetButton.style.visibility = "visible";
+        };
+    });}
+    
+    resetButton.addEventListener('click', init);
+    
+    /*----- functions -----*/
+    init();
+    
+    function init() {
+        tokens = 15; //start out with 15 tokens
+        urlArray = Object.values(imageLookup); //makes a new array of the values from my image object
+        resetButton.style.visibility = "hidden";
+        spinner();
+        render();
+    }
+    
+    
 function render() {
     renderSlotImg();
 }
@@ -67,28 +81,27 @@ function renderSlotImg() {
 }
 
 function probabilities() { //instead of grabbing random index, im assigning each index a range to give them higher or lower odds
-    const prob = Math.floor(Math.random() * 1000);
+    const prob = Math.floor(Math.random() * 100);
     console.log(prob);
-    if (prob <= 10)  {
+    if (prob <= 5)  {
         return urlArray[7];
-    } else if (prob > 10 && prob <= 60)  {
+    } else if (prob > 5 && prob <= 11)  {
         return urlArray[3];
-    } else if (prob > 60 && prob <= 130)  {
+    } else if (prob > 11 && prob <= 18)  {
         return urlArray[4];
-    } else if (prob > 130 && prob <= 210)  {
+    } else if (prob > 18 && prob <= 26)  {
         return urlArray[1];
-    } else if (prob > 210 && prob <= 310)  {
+    } else if (prob > 26 && prob <= 35)  {
         return urlArray[6];
-    } else if (prob > 310 && prob <= 440)  {
+    } else if (prob > 35 && prob <= 45)  {
         return urlArray[0];
-    } else if (prob > 440 && prob <= 590)  {
+    } else if (prob > 45 && prob <= 59)  {
         return urlArray[8];
-    } else if (prob > 590 && prob <= 770)  {
+    } else if (prob > 59 && prob <= 77)  {
         return urlArray[2];
-    } else if (prob > 770 && prob <= 1000)  {
+    } else if (prob > 77 && prob <= 100)  {
         return urlArray[5];
-    };
-    
+    };   
 }
 
 
