@@ -22,8 +22,8 @@ const imageLookup = {
 
 const tokenValue = {
     seven: 100,
-    diamond: 25,
-    dollarSign: 20,
+    diamond: 50,
+    dollarSign: 25,
     bar: 15,
     banana: 10,
     lemon: 8,
@@ -36,6 +36,7 @@ let urlArray;
 /*----- app's state (variables) -----*/
 let tokens;
 let multiplier;
+let imageState;
 /*----- cached element references -----*/
 
 const slotElements = {
@@ -59,6 +60,12 @@ const timesTwo = document.querySelector('#times-two');
 const timesThree = document.querySelector('#times-three');
 
 const multiMessage = document.querySelector('#multiplier');
+
+const mainEle = document.querySelector('main');
+
+const rulesEle = document.querySelector('#rules');
+
+const rulesButton = document.querySelector('#rules-button');
 /*----- event listeners -----*/
 function spinner() {
     spinButton.addEventListener('click', function stopper(e) {
@@ -81,6 +88,13 @@ function spinner() {
                 renderSlotImg();  
             };
         };  
+
+        if (tokens < 20) mainEle.style.backgroundColor = '#55ab55';
+        if (tokens >= 20 && tokens < 40) mainEle.style.backgroundColor = '#88ddfc';
+        if (tokens >= 40 && tokens < 75) mainEle.style.backgroundColor = '##b690de';
+        if (tokens >= 75 && tokens < 150) mainEle.style.backgroundColor = '#c93333';
+        if (tokens >= 150) mainEle.style.backgroundColor = 'gold';
+
     })};  
     
     timesOne.addEventListener('click', function() {
@@ -113,17 +127,21 @@ timesThree.addEventListener('click', function() {
     };
 });
 
-spinButton.addEventListener('mouseover', function(e) {e.target.style.backgroundColor = 'blue';});
-spinButton.addEventListener('mouseout', function(e) {e.target.style.backgroundColor = 'white';});
+rulesButton.addEventListener('click', function() {
+    imageStateFunc();
+});
 
-timesOne.addEventListener('mouseover', function(e) {e.target.style.backgroundColor = 'blue';});
-timesOne.addEventListener('mouseout', function(e) {e.target.style.backgroundColor = 'white';});
+spinButton.addEventListener('mouseover', function(e) {e.target.style.backgroundColor = '#005e13';});
+spinButton.addEventListener('mouseout', function(e) {e.target.style.backgroundColor = 'green';});
 
-timesTwo.addEventListener('mouseover', function(e) {e.target.style.backgroundColor = 'blue';});
-timesTwo.addEventListener('mouseout', function(e) {e.target.style.backgroundColor = 'white';});
+timesOne.addEventListener('mouseover', function(e) {e.target.style.backgroundColor = '#67acc5';});
+timesOne.addEventListener('mouseout', function(e) {e.target.style.backgroundColor = '#88ddfc';});
 
-timesThree.addEventListener('mouseover', function(e) {e.target.style.backgroundColor = 'blue';});
-timesThree.addEventListener('mouseout', function(e) {e.target.style.backgroundColor = 'white';});
+timesTwo.addEventListener('mouseover', function(e) {e.target.style.backgroundColor = '#8965af';});
+timesTwo.addEventListener('mouseout', function(e) {e.target.style.backgroundColor = '#B690DE';});
+
+timesThree.addEventListener('mouseover', function(e) {e.target.style.backgroundColor = '#8b1b1b';});
+timesThree.addEventListener('mouseout', function(e) {e.target.style.backgroundColor = '#c93333';});
 
 resetButton.addEventListener('click', init);
 
@@ -134,15 +152,17 @@ function init() {
     tokens = 12; //start out with 15 tokens
     urlArray = Object.values(imageLookup); //makes a new array of the values from my image object
     resetButton.style.visibility = 'hidden';
+    rulesEle.style.visibility = 'visible';
     timesOne.style.visibility = 'hidden';
     timesTwo.style.visibility = 'visible';
     timesThree.style.visibility = 'visible';
     multiplier = 1; //going to start at x1
     multiMessage.textContent = `1 Token(s)`;
-    spinner();
+    message.style.color = 'gold';
     render();
     console.log(slotElements);
 }
+
 
 function win() {
     if (slotElements.slotOneImg.outerHTML === '<img src="images/seven.png">' && slotElements.slotTwoImg.outerHTML === '<img src="images/seven.png">' && slotElements.slotThreeImg.outerHTML === '<img src="images/seven.png">') {
@@ -173,9 +193,11 @@ function win() {
         tokensEle.textContent = tokens += tokenValue.grape * multiplier;
         message.textContent = `${tokenValue.grape * multiplier} Tokens won!`;
     } else if (slotElements.slotOneImg != slotElements.slotTwoImg && tokens > 0) {
-        message.textContent = 'Click to Spin!';
+        message.textContent = 'Click the Spin Button!';
     } else if (slotElements.slotOneImg != slotElements.slotTwoImg && tokens === 0) {
         message.textContent = 'You Lose!';
+        message.style.color = 'red';
+        resetButton.style.visibility = 'visible';
     };
 }
 
@@ -215,4 +237,13 @@ function probabilities() { //instead of grabbing random index, im assigning each
     };   
 }
 
+function imageStateFunc() {
+    if (rulesEle.style.display === "none") {
+        rulesEle.style.display = "block";
+      } else {
+        rulesEle.style.display = "none";
+      };
+}
+
+spinner();
 render();
