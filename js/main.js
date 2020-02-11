@@ -32,8 +32,8 @@ const tokenValue = {
     grape: 2
 }
 
-/*----- app's state (variables) -----*/
 let urlArray;
+/*----- app's state (variables) -----*/
 let tokens;
 let multiplier;
 /*----- cached element references -----*/
@@ -64,45 +64,24 @@ function spinner() {
     spinButton.addEventListener('click', function stopper(e) {
         
         if (multiplier === 1) {
-            if (tokens > 1) {
+            if (tokens >= 1) {
                 tokensEle.textContent = tokens -= 1;
                 renderSlotImg();
-            } else if (tokens === 1) {
-                spinButton.removeEventListener('click', stopper, false);
-                resetButton.style.visibility = 'visible';
-                tokensEle.textContent = tokens -= 1;
-                message.textContent = 'You lose!'; 
-                renderSlotImg();
-            };
-         };
+            }; 
+        };
         if (multiplier === 2) {
-            if (tokens > 2) {
+            if (tokens >= 2) {
                 tokensEle.textContent = tokens -= 2;
-                renderSlotImg();
-            } else if (tokens === 2) {
-                spinButton.removeEventListener('click', stopper, false);
-                resetButton.style.visibility = 'visible';
-                tokensEle.textContent = tokens -= 2;
-                message.textContent = 'You lose!'; 
-                timesTwo.removeEventListener('click', stopper, false);
                 renderSlotImg();
             };
         };
         if (multiplier === 3) {
-            if (tokens > 3) {
+            if (tokens >= 3) {
                 tokensEle.textContent = tokens -= 3;
-                renderSlotImg();
-            } else if (tokens === 3) {
-                spinButton.removeEventListener('click', stopper, false);
-                resetButton.style.visibility = 'visible';
-                tokensEle.textContent = tokens -= 3;
-                message.textContent = 'You lose!'; 
-                timesThree.removeEventListener('click', stopper, false);
-                renderSlotImg();
+                renderSlotImg();  
             };
-        };
-        
-    });}  
+        };  
+    })};  
     
     timesOne.addEventListener('click', function() {
         timesOne.style.visibility = 'hidden';
@@ -152,7 +131,7 @@ resetButton.addEventListener('click', init);
 init();
 
 function init() {
-    tokens = 15; //start out with 15 tokens
+    tokens = 12; //start out with 15 tokens
     urlArray = Object.values(imageLookup); //makes a new array of the values from my image object
     resetButton.style.visibility = 'hidden';
     timesOne.style.visibility = 'hidden';
@@ -195,6 +174,8 @@ function win() {
         message.textContent = `${tokenValue.grape * multiplier} Tokens won!`;
     } else if (slotElements.slotOneImg != slotElements.slotTwoImg && tokens > 0) {
         message.textContent = 'Click to Spin!';
+    } else if (slotElements.slotOneImg != slotElements.slotTwoImg && tokens === 0) {
+        message.textContent = 'You Lose!';
     };
 }
 
@@ -233,6 +214,5 @@ function probabilities() { //instead of grabbing random index, im assigning each
         return urlArray[5]; //grape
     };   
 }
-
 
 render();
