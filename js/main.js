@@ -158,9 +158,8 @@ function init() {
     timesThree.style.visibility = 'visible';
     multiplier = 1; //going to start at x1
     multiMessage.textContent = `1 Token(s)`;
-    message.style.color = 'gold';
+    message.style.color = 'white';
     render();
-    console.log(slotElements);
 }
 
 
@@ -168,6 +167,7 @@ function win() {
     if (slotElements.slotOneImg.outerHTML === '<img src="images/seven.png">' && slotElements.slotTwoImg.outerHTML === '<img src="images/seven.png">' && slotElements.slotThreeImg.outerHTML === '<img src="images/seven.png">') {
         tokensEle.textContent = tokens += tokenValue.seven * multiplier;
         message.textContent = `Jackpot! ${tokenValue.seven * multiplier} Tokens won!`;
+        message.style.color = 'gold';
     } else if (slotElements.slotOneImg.outerHTML === '<img src="images/diamond.png">' && slotElements.slotTwoImg.outerHTML === '<img src="images/diamond.png">' && slotElements.slotThreeImg.outerHTML === '<img src="images/diamond.png">') {
         tokensEle.textContent = tokens += tokenValue.diamond * multiplier;
         message.textContent = `${tokenValue.diamond * multiplier} Tokens won!`;
@@ -215,7 +215,6 @@ function renderSlotImg() {
 
 function probabilities() { //instead of grabbing random index, im assigning each index a range to give them higher or lower odds
     const prob = Math.floor(Math.random() * 270);
-    console.log(prob);
     if (prob <= 6)  {
         return urlArray[7]; //seven
     } else if (prob > 6 && prob <= 19)  {
