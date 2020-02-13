@@ -76,7 +76,6 @@ const togglePlay = document.getElementById('sound-toggle');
 
 const customization = document.getElementById('customization');
 
-const allInButton = document.getElementById('all-in');
 /*----- event listeners -----*/
 function spinner() {
     spinButton.addEventListener('click', function stopper(e) {
@@ -100,12 +99,6 @@ function spinner() {
                 renderSlotImg();  
             };
         };
-        if (multiplier === allIn) {
-            if (tokens >= allIn) {
-                tokensEle.textContent = tokens -= allIn;
-                renderSlotImg();
-            };
-        };  
 
         if (tokens < 20) mainEle.style.backgroundColor = '#55ab55';
         if (tokens >= 20 && tokens < 40) mainEle.style.backgroundColor = '#88ddfc';
@@ -118,7 +111,6 @@ timesOne.addEventListener('click', function() {
     timesOne.style.visibility = 'hidden';
     timesThree.style.visibility = 'visible';
     timesTwo.style.visibility = 'visible';
-    allInButton.style.visibility = 'visible';
     if (multiplier === 2 || multiplier === 3 || multiplier === tokens) {
     multiMessage.textContent = `1 Token(s)`;
     multiplier = 1;
@@ -129,7 +121,6 @@ timesTwo.addEventListener('click', function() {
     timesTwo.style.visibility = 'hidden';
     timesOne.style.visibility = 'visible';
     timesThree.style.visibility = 'visible';
-    allInButton.style.visibility = 'visible';
     if (multiplier === 1 || multiplier === 3 || multiplier === tokens) {
         multiMessage.textContent = `2 Token(s)`;
         multiplier = 2;
@@ -140,21 +131,9 @@ timesThree.addEventListener('click', function() {
     timesThree.style.visibility = 'hidden';
     timesTwo.style.visibility = 'visible';
     timesOne.style.visibility = 'visible';
-    allInButton.style.visibility = 'visible';
     if (multiplier === 1 || multiplier === 2 || multiplier === tokens) {
         multiMessage.textContent = `3 Token(s)`;
         multiplier = 3;
-    };
-});
-
-allInButton.addEventListener('click', function() {
-    allInButton.style.visibility = 'hidden';
-    timesThree.style.visibility = 'visible';
-    timesTwo.style.visibility = 'visible';
-    timesOne.style.visibility = 'visible';
-    if (multiplier === 1 || multiplier === 2 || multiplier === 3) {
-        multiMessage.textContent = `${tokens} Token(s)`;
-        multiplier = tokens;
     };
 });
 
@@ -174,9 +153,6 @@ timesTwo.addEventListener('mouseout', function(e) {e.target.style.backgroundColo
 timesThree.addEventListener('mouseover', function(e) {e.target.style.backgroundColor = '#8b1b1b';});
 timesThree.addEventListener('mouseout', function(e) {e.target.style.backgroundColor = '#c93333';});
 
-allInButton.addEventListener('mouseover', function(e) {e.target.style.backgroundColor = '#d17504';});
-allInButton.addEventListener('mouseout', function(e) {e.target.style.backgroundColor = 'darkorange';});
-
 resetButton.addEventListener('click', init);
 
 togglePlay.addEventListener('click', function(e) {
@@ -187,7 +163,6 @@ init();
 
 function init() {
     tokens = 18; //start out with 12 tokens
-    allIn = tokens;
     urlArray = Object.values(imageLookup); //makes a new array of the values from my image object
     randomImages = urlArray[Math.floor(Math.random() * urlArray.length)];
     console.log(randomImages);
@@ -196,7 +171,6 @@ function init() {
     timesOne.style.visibility = 'hidden';
     timesTwo.style.visibility = 'visible';
     timesThree.style.visibility = 'visible';
-    allInButton.style.visibility = 'visible';
     multiplier = 1; //going to start at x1
     multiMessage.textContent = `1 Token(s)`;
     message.style.color = 'white';
