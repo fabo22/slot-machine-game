@@ -11,8 +11,17 @@
     <title>Slot Machine</title>
 </head>
 <body>
+    <button id ="sound-toggle">Toggle Music</button>
     <button id="rules-button">Toggle Rewards</button>
+    <button id="all-in">ALL IN</button>
     <img id="rules" src="images/rules-updated.jpg">
+    <ul id="customization">
+        <li id="green">0 - 20 Tokens</li>
+        <li id="blue">20 - 40 Tokens</li>
+        <li id="purple">40 - 75 Tokens</li>
+        <li id="red">75 - 150 Tokens</li>
+        <li id="gold">150+ Tokens</li>
+    </ul>
     <main>
         <h1>Big Winner Slot Machine</h1>
         <div>
@@ -38,5 +47,6 @@
         </div>
         <button id="play-again">Play Again</button>
     </main>
+    <audio  id="audio-player" src="sounds/casino-sound.mp3" loop></audio>
 </body>
 </html>
