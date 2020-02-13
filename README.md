@@ -25,7 +25,9 @@ Win by matching 3 symbols in a horizontal line.
 - CSS
 
 ## Future Enhancements
-- TBD
+- Cash out option with dollars to cash in
+- Create a shop to use your tokens to change the color/background of the slot machine/ other cosmetics
+- Saving option to save the amount of tokens you have if you leave the page
 
 ## Author
 - **Fabrizio Lopez**

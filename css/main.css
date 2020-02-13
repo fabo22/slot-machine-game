@@ -26,6 +26,10 @@ h1 {
     font-size: 8vmin;
     padding: 3vmin;
     height: 10vh;
+    color: white;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    letter-spacing: 2px;
 }
 
 h2 {
@@ -35,6 +39,7 @@ h2 {
     color: gold;
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
+    letter-spacing: 3px;
     height: 10vh;
     border: 1px solid black;
     background-color: #363131;
@@ -92,7 +97,6 @@ img {
     color: white;
 }
 
-
 p {
     display: inline;
     font-family: 'VT323', monospace;
@@ -105,28 +109,113 @@ p {
     height: 4vmin;
     font-size: 2vmin;
     background-color: #363131;
-    color: red;
+    color: white;
     text-align: center;
     margin-bottom: 1vmin;
 }
 
 #rules {
     position: absolute;
-    height: 90vmin;
-    width: 60vmin;
+    height: 80vmin;
+    width: 50vmin;
     margin-top: 12vmin;
     margin-left: 75vmin;
 }
 
 #rules-button {
     position: absolute;
-    margin-top: 2vmin;
     font-size: 2vmin;
     border: 4px solid black;
     width: 16vmin;
     height: 4vmin;
     font-size: 2vmin;
     background-color: #363131;
-    color: red;
+    color: white;
     text-align: center;
+}
+
+#sound-toggle {
+    position: absolute;
+    margin-top: 56.5vmin;
+    height: 3vmin;
+    width: 16vmin;
+    font-size: 2vmin;
+    background-color: #363131;
+    color: white;
+    text-align: center;
+}
+
+#customization {
+    list-style: none;
+    position: absolute;
+    margin-left: 52.5vmin;
+    margin-top: 15vmin;
+}
+
+#green {
+    color: green;
+    font-size: 2.25vmin;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+}
+
+#blue {
+    color: #88ddfc;
+    font-size: 2.1vmin;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+}
+
+#purple {
+    color: #b690de;
+    font-size: 2.1vmin;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+}
+
+#red {
+    color: #c93333;
+    font-size: 2.1vmin;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+}
+
+#gold {
+    color: gold;
+    font-size: 2.1vmin;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+}
+
+#difficulty {
+    padding-top: 10vmin;
+    position: absolute;
+    margin-top: 38vmin;
+    background-color: #55ab55;
+    width: 91vmin;
+    height: 31vmin;
+}
+
+#tokens-one, #tokens-two, #tokens-three {
+    border-radius: 8%;
+    width: 19vmin;
+    height: 8vmin;
+    font-size: 3vmin;
+    margin-left: 4vmin;
+    margin-right: 4vmin;
+    background-color: #363131;
+    color: white;
+    border: 4px solid black;
+}
+
+#tokens-one {
+color: #88ddfc;
+}
+
+#tokens-two {
+color: #b690de;
+}
+
+#tokens-three {
+color: #c93333;
 }
