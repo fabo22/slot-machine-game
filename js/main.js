@@ -38,6 +38,8 @@ let tokens;
 let multiplier;
 let imageState;
 let isPlaying;
+let randomImages;
+let allIn;
 /*----- cached element references -----*/
 
 const slotElements = {
@@ -79,6 +81,7 @@ const allInButton = document.getElementById('all-in');
 function spinner() {
     spinButton.addEventListener('click', function stopper(e) {
         
+
         if (multiplier === 1) {
             if (tokens >= 1) {
                 tokensEle.textContent = tokens -= 1;
@@ -97,10 +100,10 @@ function spinner() {
                 renderSlotImg();  
             };
         };
-        if (multiplier === tokens) {
-            if (tokens >= tokens) {
-                tokensEle.textContent = tokens -= tokens;
-                renderSlotImg();  
+        if (multiplier === allIn) {
+            if (tokens >= allIn) {
+                tokensEle.textContent = tokens -= allIn;
+                renderSlotImg();
             };
         };  
 
@@ -184,7 +187,10 @@ init();
 
 function init() {
     tokens = 18; //start out with 12 tokens
+    allIn = tokens;
     urlArray = Object.values(imageLookup); //makes a new array of the values from my image object
+    randomImages = urlArray[Math.floor(Math.random() * urlArray.length)];
+    console.log(randomImages);
     resetButton.style.visibility = 'hidden';
     rulesEle.style.visibility = 'visible';
     timesOne.style.visibility = 'hidden';
