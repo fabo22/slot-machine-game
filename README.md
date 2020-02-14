@@ -27,6 +27,10 @@ Win by matching 3 symbols in a horizontal line.
 - HTML
 - CSS
 
+## Getting Started
+[Link to Slot Machine](https://fabo22.github.io/slot-machine-game/)
+Choose your starting difficulty and enjoy the game!
+
 ## Future Enhancements
 - Cash out option with dollars to cash in
 - Create a shop to use your tokens to change the color/background of the slot machine/ other cosmetics
