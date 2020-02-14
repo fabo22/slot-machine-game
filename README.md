@@ -19,7 +19,7 @@ Win by matching 3 symbols in a horizontal line.
 ![Slot Machine](images/slot-machine-ref.jpg)
 - Slot Machine Reference
 
-![Screenshot](images/screenshot.jpg)
+![Screenshot](images/game-screenshot.jpg)
 - Screenshot of my completed game
 
 ## Technologies
