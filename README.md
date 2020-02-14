@@ -1,7 +1,7 @@
 # Slot Machine Game
 
 ## Description
-Win by matching 3 symbols in a horizontal line. 
+Win tokens by matching 3 symbols in a horizontal line. To win more, you can bet more and multiply your tokens by 2 or 3 times.
 
 ## User Stories
 - As a user(AAU), I should be able to land on a page where I see a slot machine with 3 random symbols displayed
